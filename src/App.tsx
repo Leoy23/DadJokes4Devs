@@ -1,27 +1,41 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
 import './App.css';
 
-
-type State = {
-  jokes: {key: string}[]
+interface Joke {
+  id: string;
+  joke: string;
+  status: number;
 }
 
-type Props = {}
+export default function App() {
 
-class App extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      jokes: [{
-        key: 'placeholder'
-      }]
-    }
+  const [joke, setJoke] = useState<Joke | {}>({})
+  const [error, setError] = useState<string>('')
+
+  const fetchData = () => {
+    return fetch('https://icanhazdadjoke.com/', {
+      method: 'GET',
+      headers: {
+        "Accept" : "application/json"
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`${response.status}`)
+        }
+        return response.json()
+      })
   }
-  render() {
-    return(
-      <h1>Here we go! DadJokes4Devs</h1>
-    )
-  }
+
+  useEffect(() => {
+      fetchData()
+      .then(randomJoke => setJoke(randomJoke))
+      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+  }, [])
+
+  return (
+    <>
+      <h1>I am App3</h1>
+    </>
+  )
 }
-
-export default App;
