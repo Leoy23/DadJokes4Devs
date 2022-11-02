@@ -8,6 +8,18 @@ export default function App() {
 
   const [joke, setJoke] = useState<Joke>({ id: '', joke: '', status: 0 })
   const [error, setError] = useState<string>('')
+  const [favs, setFavs] = useState<Joke[]>([])
+  const addFav = ( id: string, joke: string ) => {
+    
+    const favJoke = {
+      id: id,
+      joke: joke
+    }
+    
+    if (!favs.some(fav => fav.id === id)) {
+      setFavs([...favs, favJoke])
+    }
+  }
 
   useEffect(() => {
       getJokes()
@@ -22,6 +34,7 @@ export default function App() {
       <Jokes 
         id={joke.id}
         joke={joke.joke}
+        addFav={addFav}
       />
     </>
   )

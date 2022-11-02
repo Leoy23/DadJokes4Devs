@@ -6,14 +6,16 @@ import './Jokes.css'
 interface JokesProps {
     id: string;
     joke: string;
+    addFav: Function;
 }
 
-export const Jokes = ({ id, joke }: JokesProps) => {
+export const Jokes = ({ id, joke, addFav }: JokesProps) => {
     return (
         <>
             <Joke 
                 id={id}
                 joke={joke}
+                addFav={addFav}
             />
         </>
     )
