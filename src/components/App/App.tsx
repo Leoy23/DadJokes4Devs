@@ -18,6 +18,7 @@ export default function App() {
   return (
     <>
       <h1>I am DadJokes4Devs</h1>
+      { error && <h2>{error}</h2> }
       <Jokes 
         id={joke.id}
         joke={joke.joke}
