@@ -1,11 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './App.css';
-
-interface Joke {
-  id: string;
-  joke: string;
-  status: number;
-}
+import {Joke} from '../../model';
 
 export default function App() {
 
