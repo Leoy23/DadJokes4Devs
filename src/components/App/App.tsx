@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
+import {Jokes} from '../Jokes/Jokes'
 import './App.css';
 import {Joke} from '../../model';
 import {getJokes} from '../../apiCalls'
 
 export default function App() {
 
-  const [joke, setJoke] = useState<Joke | {}>({})
+  const [joke, setJoke] = useState<Joke>({ id: '', joke: '', status: 0 })
   const [error, setError] = useState<string>('')
 
   useEffect(() => {
@@ -17,6 +18,10 @@ export default function App() {
   return (
     <>
       <h1>I am DadJokes4Devs</h1>
+      <Jokes 
+        id={joke.id}
+        joke={joke.joke}
+      />
     </>
   )
 }
