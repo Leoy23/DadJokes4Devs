@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import './App.css';
 import {Nav} from '../Nav/Nav';
 import {Jokes} from '../Jokes/Jokes';
+import {Favorites} from '../Favorites/Favorites'
 import {Joke} from '../../model';
 import {getJokes} from '../../apiCalls';
 
@@ -22,7 +23,7 @@ export default function App() {
       setFavs([...favs, favJoke])
     }
   }
-  
+
   const newJoke = () => {
     getJokes()
       .then(randomJoke => setJoke(randomJoke))
@@ -45,6 +46,9 @@ export default function App() {
         joke={joke.joke}
         addFav={addFav}
         newJoke={newJoke}
+      />
+      <Favorites
+        favs={favs}
       />
     </>
   )
