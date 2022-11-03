@@ -20,6 +20,11 @@ export default function App() {
       setFavs([...favs, favJoke])
     }
   }
+  const newJoke = () => {
+    getJokes()
+      .then(randomJoke => setJoke(randomJoke))
+      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+  }
 
   useEffect(() => {
       getJokes()
@@ -35,6 +40,7 @@ export default function App() {
         id={joke.id}
         joke={joke.joke}
         addFav={addFav}
+        newJoke={newJoke}
       />
     </>
   )

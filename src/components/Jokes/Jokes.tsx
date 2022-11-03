@@ -6,10 +6,11 @@ import './Jokes.css'
 interface JokesProps {
     id: string;
     joke: string;
-    addFav: Function;
+    addFav: (id: string, joke: string) => void;
+    newJoke: () => void;
 }
 
-export const Jokes = ({ id, joke, addFav }: JokesProps) => {
+export const Jokes = ({ id, joke, addFav, newJoke }: JokesProps) => {
     return (
         <>
             <Joke 
@@ -17,6 +18,7 @@ export const Jokes = ({ id, joke, addFav }: JokesProps) => {
                 joke={joke}
                 addFav={addFav}
             />
+            <button onClick={newJoke}>New Joke Pls</button>
         </>
     )
 }
