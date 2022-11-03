@@ -1,10 +1,11 @@
 import React from 'react';
 import './Nav.css';
+import {NavLink} from 'react-router-dom'
 
 export const Nav = () => {
   return (
     <nav>
-      <button>My Precious Jokes</button>
+      <NavLink to="/favorites">Favorites</NavLink> | <NavLink to="/">Home</NavLink>
     </nav>
   )
 }

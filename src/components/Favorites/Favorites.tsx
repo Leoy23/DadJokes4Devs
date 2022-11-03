@@ -21,6 +21,7 @@ export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
   })
   return (
     <>
+      {favsList.length === 0 && <h2>You don't have any favorites!</h2>}
       {favsList}
     </>
   )

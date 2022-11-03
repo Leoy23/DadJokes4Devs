@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Switch, Route } from "react-router-dom";
 import './App.css';
 import {Nav} from '../Nav/Nav';
 import {Jokes} from '../Jokes/Jokes';
@@ -44,18 +45,22 @@ export default function App() {
   return (
     <>
       <h1>I am DadJokes4Devs</h1>
-      { error && <h2>{error}</h2> }
       <Nav />
-      <Jokes 
-        id={joke.id}
-        joke={joke.joke}
-        addFav={addFav}
-        newJoke={newJoke}
-      />
-      <Favorites
-        favs={favs}
-        deleteFav={deleteFav}
-      />
+      { error && <h2>{error}</h2> }
+      <Route exact path="/">
+        <Jokes 
+          id={joke.id}
+          joke={joke.joke}
+          addFav={addFav}
+          newJoke={newJoke}
+        />
+      </Route>
+      <Route exact path="/favorites">
+        <Favorites
+          favs={favs}
+          deleteFav={deleteFav}
+        />
+      </Route>
     </>
   )
 }
