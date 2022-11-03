@@ -12,6 +12,12 @@ export default function App() {
   const [error, setError] = useState<string>('')
   const [favs, setFavs] = useState<Joke[]>([])
 
+  useEffect(() => {
+    getJokes()
+    .then(randomJoke => setJoke(randomJoke))
+    .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+}, [])
+
   const addFav = ( id: string, joke: string ) => {
     
     const favJoke = {
@@ -30,11 +36,10 @@ export default function App() {
       .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
   }
 
-  useEffect(() => {
-      getJokes()
-      .then(randomJoke => setJoke(randomJoke))
-      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
-  }, [])
+  const deleteFav = (id: string) => {
+    const filteredFavs = favs.filter(fav => fav.id !== id)
+    setFavs(filteredFavs)
+  }
 
   return (
     <>
@@ -49,6 +54,7 @@ export default function App() {
       />
       <Favorites
         favs={favs}
+        deleteFav={deleteFav}
       />
     </>
   )
