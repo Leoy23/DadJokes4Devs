@@ -1,14 +1,24 @@
 import React, {useState, useEffect} from "react";
-import {Jokes} from '../Jokes/Jokes'
+import { Switch, Route } from "react-router-dom";
 import './App.css';
+import {Nav} from '../Nav/Nav';
+import {Jokes} from '../Jokes/Jokes';
+import {Favorites} from '../Favorites/Favorites'
 import {Joke} from '../../model';
-import {getJokes} from '../../apiCalls'
+import {getJokes} from '../../apiCalls';
 
 export default function App() {
 
   const [joke, setJoke] = useState<Joke>({ id: '', joke: '', status: 0 })
   const [error, setError] = useState<string>('')
   const [favs, setFavs] = useState<Joke[]>([])
+
+  useEffect(() => {
+    getJokes()
+    .then(randomJoke => setJoke(randomJoke))
+    .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+}, [])
+
   const addFav = ( id: string, joke: string ) => {
     
     const favJoke = {
@@ -20,28 +30,37 @@ export default function App() {
       setFavs([...favs, favJoke])
     }
   }
+
   const newJoke = () => {
     getJokes()
       .then(randomJoke => setJoke(randomJoke))
       .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
   }
 
-  useEffect(() => {
-      getJokes()
-      .then(randomJoke => setJoke(randomJoke))
-      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
-  }, [])
+  const deleteFav = (id: string) => {
+    const filteredFavs = favs.filter(fav => fav.id !== id)
+    setFavs(filteredFavs)
+  }
 
   return (
     <>
       <h1>I am DadJokes4Devs</h1>
+      <Nav />
       { error && <h2>{error}</h2> }
-      <Jokes 
-        id={joke.id}
-        joke={joke.joke}
-        addFav={addFav}
-        newJoke={newJoke}
-      />
+      <Route exact path="/">
+        <Jokes 
+          id={joke.id}
+          joke={joke.joke}
+          addFav={addFav}
+          newJoke={newJoke}
+        />
+      </Route>
+      <Route exact path="/favorites">
+        <Favorites
+          favs={favs}
+          deleteFav={deleteFav}
+        />
+      </Route>
     </>
   )
 }
