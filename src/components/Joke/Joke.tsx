@@ -4,7 +4,7 @@ import './Joke.css'
 interface JokeProps {
     id: string;
     joke: string;
-    addFav: Function;
+    addFav: (id: string, joke: string) => void;
 }
 
 export const Joke = ({ id, joke, addFav }: JokeProps) => {
