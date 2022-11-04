@@ -8,15 +8,19 @@ interface JokesProps {
     joke: string;
     addFav: (id: string, joke: string) => void;
     newJoke: () => void;
+    btnText: boolean;
+    deleteFav: (id: string) => void;
 }
 
-export const Jokes = ({ id, joke, addFav, newJoke }: JokesProps) => {
+export const Jokes = ({ id, joke, addFav, newJoke, btnText, deleteFav }: JokesProps) => {
     return (
         <>
             <Joke 
                 id={id}
                 joke={joke}
                 addFav={addFav}
+                btnText={btnText}
+                deleteFav={deleteFav}
             />
             <button onClick={newJoke}>New Joke Pls</button>
         </>
