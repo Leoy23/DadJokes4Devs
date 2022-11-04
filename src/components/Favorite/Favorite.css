@@ -1,0 +1,15 @@
+.fav-card {
+    align-items: center;
+    border: 2px solid purple;
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+    justify-content: space-evenly;
+    padding: .5rem;
+    text-align: center;
+    width: 20rem;
+}
+
+.delete-fav-btn {
+    width: 10rem;
+}

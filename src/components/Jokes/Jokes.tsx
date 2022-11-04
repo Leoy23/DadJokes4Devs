@@ -14,7 +14,7 @@ interface JokesProps {
 
 export const Jokes = ({ id, joke, addFav, newJoke, btnText, deleteFav }: JokesProps) => {
     return (
-        <>
+        <section className='jokes-box'>
             <Joke 
                 id={id}
                 joke={joke}
@@ -22,8 +22,10 @@ export const Jokes = ({ id, joke, addFav, newJoke, btnText, deleteFav }: JokesPr
                 btnText={btnText}
                 deleteFav={deleteFav}
             />
-            <button onClick={newJoke}>New Joke Pls</button>
-        </>
+            <button 
+            className='new-joke-btn'
+            onClick={newJoke}>New Joke Pls</button>
+        </section>
     )
 }
 

@@ -9,9 +9,11 @@ interface FavoriteProps {
 
 export const Favorite = ({id, joke, deleteFav}: FavoriteProps) => {
   return (
-    <>
+    <article className='fav-card'>
       <p>{id}: {joke}</p>
-      <button onClick={() => deleteFav(id)}>No moar favorite</button>
-    </>
+      <button 
+      className='delete-fav-btn'
+      onClick={() => deleteFav(id)}>No moar favorite</button>
+    </article>
   )
 }

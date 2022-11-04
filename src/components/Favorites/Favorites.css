@@ -1,0 +1,7 @@
+.fav-box {
+    border: 2px solid yellow;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    justify-content: space-around;
+}

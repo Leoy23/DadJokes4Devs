@@ -1,0 +1,12 @@
+.jokes-box {
+    align-items: center;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: space-evenly;
+}
+
+.new-joke-btn {
+    width: 10rem;
+}
