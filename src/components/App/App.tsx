@@ -12,6 +12,7 @@ export default function App() {
   const [joke, setJoke] = useState<Joke>({ id: '', joke: '', status: 0 })
   const [error, setError] = useState<string>('')
   const [favs, setFavs] = useState<Joke[]>([])
+  const [btnText, setBtnText] = useState(false)
 
   useEffect(() => {
     getJokes()
@@ -28,7 +29,8 @@ export default function App() {
     
     if (!favs.some(fav => fav.id === id)) {
       setFavs([...favs, favJoke])
-    }
+      setBtnText(true)
+    } 
   }
 
   const newJoke = () => {
@@ -40,6 +42,7 @@ export default function App() {
   const deleteFav = (id: string) => {
     const filteredFavs = favs.filter(fav => fav.id !== id)
     setFavs(filteredFavs)
+    setBtnText(false)
   }
 
   return (
@@ -53,6 +56,8 @@ export default function App() {
           joke={joke.joke}
           addFav={addFav}
           newJoke={newJoke}
+          btnText={btnText}
+          deleteFav={deleteFav}
         />
       </Route>
       <Route exact path="/favorites">
