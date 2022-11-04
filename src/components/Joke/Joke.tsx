@@ -12,12 +12,6 @@ interface JokeProps {
 export const Joke = ({ id, joke, addFav, btnText, deleteFav }: JokeProps) => {
     const text = btnText ? 'No Moar Favorite' : 'Moar Favorite'
 
-    // const handleClick = (id: string, joke: string) => {
-    //     const updateFav = btnText ? () => deleteFav(id) : () => addFav(id, joke)
-    //     console.log(updateFav)
-    //     return updateFav
-    // }
-
     return (
         <div>
             <p>{joke}</p>
