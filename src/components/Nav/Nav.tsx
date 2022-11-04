@@ -12,7 +12,7 @@ export const Nav = () => {
         src={logo} 
         alt='DadJokes4Devs Header Logo'/>
       <span className='link-box'>
-        <NavLink className='inactive' exact to="/">Home</NavLink> | <NavLink className='inactive' to="/favorites">Favs</NavLink>
+        <NavLink className='inactive' exact to="/">Home</NavLink> <NavLink className='inactive' to="/favorites">Favs</NavLink>
       </span>
     </nav>
   )

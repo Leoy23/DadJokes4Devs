@@ -8,9 +8,9 @@
     flex-direction: column;
     height: 10rem;
     justify-content: space-evenly;
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
-    width: 20rem;
+    width: 18rem;
 }
 
 .fav-btn {

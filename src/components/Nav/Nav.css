@@ -16,17 +16,23 @@
 
 .inactive {
     color: white;
+    font-size: 1.5rem;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.5s ;
+    width: 45vw;
 }
 
 .inactive:hover {
-    background-color: yellow;
+    background-color: #bb3d41;
 }
 
 .active {
     color: white;
-    background-color: purple;
+    background-color: #482e4f;
 }
 
 .active:hover {
-    background-color: purple;
+    background-color: #482e4f;
 }
