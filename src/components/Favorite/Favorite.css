@@ -1,0 +1,19 @@
+.fav-card {
+    align-items: center;
+    background-color: white;
+    border: .7rem dashed #FF555A;
+    border-radius: 2rem;
+    color: #7C5B85;
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+    justify-content: space-evenly;
+    padding: 2rem;
+    text-align: center;
+    width: 18rem;
+}
+
+.delete-fav-btn {
+    font-family: Comic Sans MS;
+    width: 10rem;
+}

@@ -34,6 +34,8 @@ export default function App() {
   }
 
   const newJoke = () => {
+    setBtnText(false)
+
     getJokes()
       .then(randomJoke => setJoke(randomJoke))
       .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
@@ -46,8 +48,7 @@ export default function App() {
   }
 
   return (
-    <>
-      <h1>I am DadJokes4Devs</h1>
+    <main className="home-page">
       <Nav />
       { error && <h2>{error}</h2> }
       <Route exact path="/">
@@ -66,6 +67,6 @@ export default function App() {
           deleteFav={deleteFav}
         />
       </Route>
-    </>
+    </main>
   )
 }
