@@ -49,7 +49,6 @@ export default function App() {
 
   return (
     <main className="home-page">
-      <h1>I'm Tired. Hi Tired, I'm DadJokes4Devs</h1>
       <Nav />
       { error && <h2>{error}</h2> }
       <Route exact path="/">

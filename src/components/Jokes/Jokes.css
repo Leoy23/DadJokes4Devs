@@ -1,6 +1,5 @@
 .jokes-box {
     align-items: center;
-    border: 2px solid white;
     display: flex;
     flex-direction: column;
     height: 50vh;
@@ -8,5 +7,6 @@
 }
 
 .new-joke-btn {
+    font-family: Comic Sans MS;
     width: 10rem;
 }

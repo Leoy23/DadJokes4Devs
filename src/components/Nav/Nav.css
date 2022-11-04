@@ -1,5 +1,32 @@
 .nav-bar {
-    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+}
+
+.logo {
+    width: 100vw;
+}
+
+.link-box {
     display: flex;
     justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.inactive {
+    color: white;
+}
+
+.inactive:hover {
+    background-color: yellow;
+}
+
+.active {
+    color: white;
+    background-color: purple;
+}
+
+.active:hover {
+    background-color: purple;
 }
