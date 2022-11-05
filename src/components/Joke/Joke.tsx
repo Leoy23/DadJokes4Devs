@@ -13,14 +13,14 @@ export const Joke = ({ id, joke, addFav, btnText, deleteFav }: JokeProps) => {
     const text = btnText ? 'No Moar Favorite' : 'Moar Favorite'
 
     return (
-        <article className='display-joke'>
-            <p>{joke}</p>
-            {btnText && <span className="update-favs">Added to your favorites!</span>}
-            <button 
-                className='fav-btn'
-                onClick={btnText ? () => deleteFav(id) : () => addFav(id, joke)}>
-                {text}
-            </button>
-        </article>
+            <article className='display-joke'>
+                <p>{joke}</p>
+                {btnText && <span className="update-favs">Added to your favorites!</span>}
+                <button 
+                    className='fav-btn'
+                    onClick={btnText ? () => deleteFav(id) : () => addFav(id, joke)}>
+                    {text}
+                </button>
+            </article>
     )
 }

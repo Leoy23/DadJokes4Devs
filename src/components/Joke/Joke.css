@@ -13,6 +13,10 @@
     width: 18rem;
 }
 
+img {
+    width: 5rem;
+}
+
 .update-favs {
     color: #FF555A;
     font-size: 0.9rem;

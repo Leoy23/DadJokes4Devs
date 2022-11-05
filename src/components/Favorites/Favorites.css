@@ -1,3 +1,16 @@
+.no-favs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* height: 50vh; */
+    justify-content: center;
+}
+
+.sad-dog {
+    margin-bottom: 1rem;
+    width: 40vw;
+}
+
 .fav-box {
     display: flex;
     flex-wrap: wrap;
