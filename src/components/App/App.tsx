@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import './App.css';
 import {Nav} from '../Nav/Nav';
 import {Jokes} from '../Jokes/Jokes';
@@ -17,9 +17,6 @@ export default function App() {
 
   useEffect(() => {
     newJoke();
-    // getJokes()
-    //   .then(randomJoke => setJoke({id: randomJoke.id, joke: randomJoke.joke}))
-    //   .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
 }, [])
 
   const newJoke = () => {
@@ -54,7 +51,7 @@ export default function App() {
       <Nav />
       { error && <h2>{error}</h2> }
       <Switch>
-        <Route exact path="/home">
+        <Route exact path="/">
           <Jokes 
             id={joke.id}
             joke={joke.joke}

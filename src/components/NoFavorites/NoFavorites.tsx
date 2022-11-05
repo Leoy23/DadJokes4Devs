@@ -13,7 +13,7 @@ export const NoFavorites = () => {
         alt="Dug from Disney's Up is wearing a cone of shame and looks up at you, shamefully"
         className="sad-dog"
       />
-      <h3 className="no-fav-text">You should probably go <NavLink className='inactive' exact to="/home">home</NavLink> and add some favorites...</h3>
+      <h3 className="no-fav-text">You should probably go <NavLink className='inactive' exact to="/">home</NavLink> and add some favorites...</h3>
     </article>
   )
 }
