@@ -3,7 +3,7 @@ describe('Favorites page', () => {
     cy.intercept('GET', 'https://icanhazdadjoke.com/', {
       statusCode: 200,
       ok: true,
-      body: {id:'ilksjdfidos', joke: 'This is a joke!'}
+      fixture: 'joke1'
      });
   });
 

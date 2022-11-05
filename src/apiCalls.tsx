@@ -2,7 +2,7 @@ export const getJokes = () => {
   return fetch('https://icanhazdadjoke.com/', {
     method: 'GET',
     headers: {
-      "Accept" : "application/json"
+      'Accept' : 'application/json'
     }
   })
     .then(response => {
@@ -10,5 +10,5 @@ export const getJokes = () => {
         throw new Error(`${response.status}`)
       }
       return response.json()
-    })
-}
+    });
+};

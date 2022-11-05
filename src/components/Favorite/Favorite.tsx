@@ -1,11 +1,5 @@
-import React from 'react';
+import { FavoriteProps } from '../../model';
 import './Favorite.css';
-
-interface FavoriteProps {
-  id: string;
-  joke: string;
-  deleteFav: (id: string) => void;
-}
 
 export const Favorite = ({id, joke, deleteFav}: FavoriteProps) => {
   return (
@@ -15,5 +9,5 @@ export const Favorite = ({id, joke, deleteFav}: FavoriteProps) => {
         className='delete-fav-btn'
         onClick={() => deleteFav(id)}>No moar favorite</button>
     </article>
-  )
-}
+  );
+};
