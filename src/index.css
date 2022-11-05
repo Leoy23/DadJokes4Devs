@@ -3,3 +3,21 @@ body {
     font-family: Comic Sans MS;
     margin: 0;
 }
+
+button {
+    background-color: #fe8d91;
+    border: 0.2rem solid #482e4f;
+    color: #482e4f;
+    font-family: Comic Sans MS;
+    font-size: 1rem;
+    padding: 0.25rem;
+    transition: 0.5s;
+    width: 10rem;
+}
+
+button:hover {
+    background-color: #FF555A;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 15rem;
+}

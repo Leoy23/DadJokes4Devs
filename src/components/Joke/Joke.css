@@ -13,7 +13,18 @@
     width: 18rem;
 }
 
-.fav-btn {
+img {
+    width: 5rem;
+}
+
+.update-favs {
+    color: #FF555A;
+    font-size: 0.9rem;
+    font-weight: 550;
+    padding-bottom: 0.25rem;
+}
+
+/* .fav-btn {
     font-family: Comic Sans MS;
     width: 10rem;
-}
+} */

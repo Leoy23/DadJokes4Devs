@@ -1,72 +1,74 @@
 import React, {useState, useEffect} from "react";
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import './App.css';
 import {Nav} from '../Nav/Nav';
 import {Jokes} from '../Jokes/Jokes';
 import {Favorites} from '../Favorites/Favorites'
+import {BadUrl} from '../BadUrl/BadUrl';
 import {Joke} from '../../model';
 import {getJokes} from '../../apiCalls';
 
 export default function App() {
 
-  const [joke, setJoke] = useState<Joke>({ id: '', joke: '', status: 0 })
+  const [joke, setJoke] = useState<Joke>({ id: '', joke: '' })
   const [error, setError] = useState<string>('')
   const [favs, setFavs] = useState<Joke[]>([])
-  const [btnText, setBtnText] = useState(false)
+  const [favStatus, setfavStatus] = useState<boolean>(false)
 
   useEffect(() => {
-    getJokes()
-    .then(randomJoke => setJoke(randomJoke))
-    .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+    newJoke();
 }, [])
 
+  const newJoke = () => {
+    getJokes()
+      .then(randomJoke => {
+        setJoke({id: randomJoke.id, joke: randomJoke.joke})
+        setfavStatus(false)
+      })
+      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+  }
+
   const addFav = ( id: string, joke: string ) => {
-    
     const favJoke = {
-      id: id,
-      joke: joke
+      id,
+      joke
     }
     
     if (!favs.some(fav => fav.id === id)) {
       setFavs([...favs, favJoke])
-      setBtnText(true)
+      setfavStatus(true)
     } 
-  }
-
-  const newJoke = () => {
-    setBtnText(false)
-
-    getJokes()
-      .then(randomJoke => setJoke(randomJoke))
-      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
   }
 
   const deleteFav = (id: string) => {
     const filteredFavs = favs.filter(fav => fav.id !== id)
     setFavs(filteredFavs)
-    setBtnText(false)
+    setfavStatus(false)
   }
 
   return (
     <main className="home-page">
       <Nav />
       { error && <h2>{error}</h2> }
-      <Route exact path="/">
-        <Jokes 
-          id={joke.id}
-          joke={joke.joke}
-          addFav={addFav}
-          newJoke={newJoke}
-          btnText={btnText}
-          deleteFav={deleteFav}
-        />
-      </Route>
-      <Route exact path="/favorites">
-        <Favorites
-          favs={favs}
-          deleteFav={deleteFav}
-        />
-      </Route>
+      <Switch>
+        <Route exact path="/">
+          <Jokes 
+            id={joke.id}
+            joke={joke.joke}
+            favStatus={favStatus}
+            addFav={addFav}
+            newJoke={newJoke}
+            deleteFav={deleteFav}
+          />
+        </Route>
+        <Route exact path="/favorites">
+          <Favorites
+            favs={favs}
+            deleteFav={deleteFav}
+          />
+        </Route>
+        <Route component={BadUrl} />
+      </Switch>
     </main>
   )
 }
