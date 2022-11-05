@@ -13,7 +13,7 @@ export const BadUrl = () => {
         src={badUrl}
         alt="This is fine dog sitting in a fire in his apartment, drinking coffee"
       />
-      <h3>Head on <NavLink className='inactive' exact to="/home">home</NavLink> or try a different address.</h3>
+      <h3>This is fine... try going <NavLink className='inactive' exact to="/home">home</NavLink> or a different address.</h3>
     </section>
   )
 }
