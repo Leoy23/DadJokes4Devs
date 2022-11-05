@@ -1,9 +1,9 @@
 .jokes-box {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 50vh;
-    justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-evenly;
 }
 
 /* .new-joke-btn {

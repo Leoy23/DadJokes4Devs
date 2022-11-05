@@ -1,58 +1,84 @@
-import React, {useState, useEffect} from "react";
-import {Switch, Route} from "react-router-dom";
-import './App.css';
-import {Nav} from '../Nav/Nav';
-import {Jokes} from '../Jokes/Jokes';
-import {Favorites} from '../Favorites/Favorites'
-import {BadUrl} from '../BadUrl/BadUrl';
-import {Joke} from '../../model';
-import {getJokes} from '../../apiCalls';
+import React, { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
+import "./App.css";
+import { Nav } from "../Nav/Nav";
+import { Jokes } from "../Jokes/Jokes";
+import { Favorites } from "../Favorites/Favorites";
+import { BadUrl } from "../BadUrl/BadUrl";
+import { Joke } from "../../model";
+import { getJokes } from "../../apiCalls";
+/* 
+I tend to organize my imports in some way, 
+usually like: React stuff, components, utils (api), types, css
+with a line break between each grouping
+*/
 
 export default function App() {
-
-  const [joke, setJoke] = useState<Joke>({ id: '', joke: '' })
-  const [error, setError] = useState<string>('')
-  const [favs, setFavs] = useState<Joke[]>([])
-  const [favStatus, setfavStatus] = useState<boolean>(false)
+  /* joke here could be of type <Joke | null> and default to null
+  this would add a little complexity to your return though, see below */
+  const [joke, setJoke] = useState<Joke>({ id: "", joke: "" });
+  const [error, setError] = useState<string>("");
+  const [favs, setFavs] = useState<Joke[]>([]);
+  const [favStatus, setfavStatus] = useState<boolean>(false);
 
   useEffect(() => {
     newJoke();
-}, [])
+  }, []);
 
   const newJoke = () => {
     getJokes()
-      .then(randomJoke => {
-        setJoke({id: randomJoke.id, joke: randomJoke.joke})
-        setfavStatus(false)
+      .then((randomJoke) => {
+        setJoke({ id: randomJoke.id, joke: randomJoke.joke });
+        setfavStatus(false);
       })
-      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
-  }
+      .catch((error) =>
+        setError(`Uh oh, that's a ${error.message}! Try again later.`)
+      );
+  };
 
-  const addFav = ( id: string, joke: string ) => {
+  const addFav = (id: string, joke: string) => {
     const favJoke = {
       id,
-      joke
+      joke,
+    };
+
+    if (!favs.some((fav) => fav.id === id)) {
+      setFavs([...favs, favJoke]);
+      setfavStatus(true);
     }
-    
-    if (!favs.some(fav => fav.id === id)) {
-      setFavs([...favs, favJoke])
-      setfavStatus(true)
-    } 
-  }
+  };
 
   const deleteFav = (id: string) => {
-    const filteredFavs = favs.filter(fav => fav.id !== id)
-    setFavs(filteredFavs)
-    setfavStatus(false)
+    const filteredFavs = favs.filter((fav) => fav.id !== id);
+    setFavs(filteredFavs);
+    setfavStatus(false);
+  };
+
+  /* joke being able to be null is a more correct flow imo
+  but means you have to handle it correctly. i usually add an early return
+  that would look something like 
+  
+  if (error || !joke) {
+    return <main className="home-page">
+      <Nav />
+      <h2>{error}</h2>
+    </main>
   }
+
+  that way you wouldn't render anything dependent on your joke without
+  it having a real value
+  
+  also the way you have it now, if you encounter an error, you'd display the error 
+  with an empty joke card below it which isn't really useful to the user if the page is broken
+  */
 
   return (
     <main className="home-page">
       <Nav />
-      { error && <h2>{error}</h2> }
+      {error && <h2>{error}</h2>}
       <Switch>
         <Route exact path="/">
-          <Jokes 
+          <Jokes
             id={joke.id}
             joke={joke.joke}
             favStatus={favStatus}
@@ -62,13 +88,10 @@ export default function App() {
           />
         </Route>
         <Route exact path="/favorites">
-          <Favorites
-            favs={favs}
-            deleteFav={deleteFav}
-          />
+          <Favorites favs={favs} deleteFav={deleteFav} />
         </Route>
         <Route component={BadUrl} />
       </Switch>
     </main>
-  )
+  );
 }

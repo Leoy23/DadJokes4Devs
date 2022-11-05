@@ -1,13 +1,13 @@
 .no-favs {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .fav-box {
-    display: flex;
-    flex-wrap: wrap;
-    height: 50vh;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  height: 50vh;
+  justify-content: space-around;
 }

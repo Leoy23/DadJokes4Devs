@@ -1,17 +1,30 @@
 .fav-card {
-    align-items: center;
-    background-color: white;
-    border: .7rem dashed #FF555A;
-    border-radius: 2rem;
-    color: #7C5B85;
-    display: flex;
-    flex-direction: column;
-    height: 10rem;
-    justify-content: space-evenly;
-    margin-bottom: 1rem;
-    padding: 2rem;
-    text-align: center;
-    width: 18rem;
+  /*
+  i used to alphabetize but now i group by similarity 
+  i rearranged so y'all could see an example
+
+  also don't be afraid to have line breaks, white space is good for readability
+  */
+  /* box sizing */
+  height: 10rem;
+  width: 18rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+
+  /* formatting */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  /* box styling */
+  background-color: white;
+  border: 0.7rem dashed #ff555a;
+  border-radius: 2rem;
+
+  /* text specific */
+  color: #7c5b85;
+  text-align: center;
 }
 
 /* .delete-fav-btn {

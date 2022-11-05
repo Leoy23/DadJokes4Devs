@@ -1,16 +1,16 @@
-import React from 'react';
-import './Favorites.css';
-import {Favorite} from '../Favorite/Favorite';
-import { NoFavorites } from '../NoFavorites/NoFavorites';
-import {Joke} from '../../model';
+import React from "react";
+import "./Favorites.css";
+import { Favorite } from "../Favorite/Favorite";
+import { NoFavorites } from "../NoFavorites/NoFavorites";
+import { Joke } from "../../model";
 
 interface FavoritesProps {
   favs: Joke[];
   deleteFav: (id: string) => void;
 }
 
-export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
-  const favsList = favs.map(fav => {
+export const Favorites = ({ favs, deleteFav }: FavoritesProps) => {
+  const favsList = favs.map((fav) => {
     return (
       <Favorite
         key={fav.id}
@@ -18,12 +18,16 @@ export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
         joke={fav.joke}
         deleteFav={deleteFav}
       />
-    )
-  })
+    );
+  });
   return (
-    <section className={favsList.length === 0 ? 'no-favs' : 'fav-box'}>
+    <section className={favsList.length === 0 ? "no-favs" : "fav-box"}>
+      {/* 
+        personal preference but this could be a ternary 
+        {favsList.length ? favsList : <NoFavorites/>}
+      */}
       {favsList.length === 0 && <NoFavorites />}
       {favsList}
     </section>
-  )
-}
+  );
+};

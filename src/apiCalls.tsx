@@ -1,14 +1,13 @@
 export const getJokes = () => {
-  return fetch('https://icanhazdadjoke.com/', {
-    method: 'GET',
+  return fetch("https://icanhazdadjoke.com/", {
+    method: "GET",
     headers: {
-      "Accept" : "application/json"
+      Accept: "application/json",
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error(`${response.status}`);
     }
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`${response.status}`)
-      }
-      return response.json()
-    })
-}
+    return response.json();
+  });
+};
