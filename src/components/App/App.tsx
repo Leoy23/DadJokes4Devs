@@ -4,20 +4,20 @@ import { Joke } from '../../model';
 import { getJokes } from '../../apiCalls';
 import { Nav } from '../Nav/Nav';
 import { JokeBox } from '../JokeBox/JokeBox';
-import { Favorites } from '../Favorites/Favorites'
+import { Favorites } from '../Favorites/Favorites';
 import { BadUrl } from '../BadUrl/BadUrl';
 import './App.css';
 
-export default function App() {
+export const App = () => {
 
-  const [joke, setJoke] = useState<Joke>({ id: '', joke: '' })
-  const [error, setError] = useState<string>('')
-  const [favs, setFavs] = useState<Joke[]>([])
-  const [favStatus, setfavStatus] = useState<boolean>(false)
+  const [joke, setJoke] = useState<Joke>({ id: '', joke: '' });
+  const [error, setError] = useState<string>('');
+  const [favs, setFavs] = useState<Joke[]>([]);
+  const [favStatus, setfavStatus] = useState<boolean>(false);
 
   useEffect(() => {
     newJoke();
-}, [])
+}, []);
 
   const newJoke = () => {
     getJokes()
@@ -26,30 +26,30 @@ export default function App() {
         setfavStatus(false)
       })
       .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
-  }
+  };
 
-  const addFav = ( id: string, joke: string ) => {
+  const addFav = (id: string, joke: string) => {
     const favJoke = {
       id,
       joke
-    }
+    };
     
     if (!favs.some(fav => fav.id === id)) {
-      setFavs([...favs, favJoke])
-      setfavStatus(true)
-    } 
-  }
+      setFavs([...favs, favJoke]);
+      setfavStatus(true);
+    }; 
+  };
 
   const deleteFav = (id: string) => {
-    const filteredFavs = favs.filter(fav => fav.id !== id)
-    setFavs(filteredFavs)
-    setfavStatus(false)
-  }
+    const filteredFavs = favs.filter(fav => fav.id !== id);
+    setFavs(filteredFavs);
+    setfavStatus(false);
+  };
 
   return (
     <main className='home-page'>
       <Nav />
-      {error ?  <h2 className='error-msg'>{error}</h2> : 
+      {error ? <h2 className='error-msg'>{error}</h2> : 
       <Switch>
         <Route exact path='/'>
           <JokeBox 
@@ -70,5 +70,5 @@ export default function App() {
         <Route component={BadUrl} />
       </Switch> }
     </main>
-  )
-}
+  );
+};

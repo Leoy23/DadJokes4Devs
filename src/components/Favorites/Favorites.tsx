@@ -12,11 +12,12 @@ export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
         joke={fav.joke}
         deleteFav={deleteFav}
       />
-    )
-  })
+    );
+  });
+
   return (
     <section className={favsList.length ? 'fav-box' : 'no-favs'}>
       {favsList.length ? favsList : <NoFavorites/>}
     </section>
-  )
-}
+  );
+};

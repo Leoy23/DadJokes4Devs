@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import './Nav.css';
 
-const logo = require('../../assets/logo.png')
+const logo = require('../../assets/logo.png');
 
 export const Nav = () => {
   return (
@@ -14,5 +14,5 @@ export const Nav = () => {
         <NavLink className='inactive home' exact to='/'>Home</NavLink> <NavLink className='inactive favorites' to='/favorites'>Favs</NavLink>
       </span>
     </nav>
-  )
-}
+  );
+};

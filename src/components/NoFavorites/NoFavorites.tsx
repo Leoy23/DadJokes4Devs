@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './NoFavorites.css';
 
-const sadDog = require('../../assets/sad-dog.gif')
+const sadDog = require('../../assets/sad-dog.gif');
 
 export const NoFavorites = () => {
   return (
@@ -14,5 +14,5 @@ export const NoFavorites = () => {
       />
       <h3 className='no-fav-text'>You should probably go <NavLink className='inactive' exact to='/'>home</NavLink> and add some favorites...</h3>
     </article>
-  )
-}
+  );
+};

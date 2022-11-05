@@ -10,5 +10,5 @@ export const getJokes = () => {
         throw new Error(`${response.status}`)
       }
       return response.json()
-    })
-}
+    });
+};

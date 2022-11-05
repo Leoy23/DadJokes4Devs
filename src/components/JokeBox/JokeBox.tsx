@@ -1,8 +1,8 @@
-import { Joke } from '../Joke/Joke'
-import { JokeBoxProps } from '../../model'
-import './JokeBox.css'
+import { Joke } from '../Joke/Joke';
+import { JokeBoxProps } from '../../model';
+import './JokeBox.css';
 
-export const JokeBox = ({ id, joke, favStatus, addFav, newJoke, deleteFav }: JokeBoxProps) => {
+export const JokeBox = ({id, joke, favStatus, addFav, newJoke, deleteFav}: JokeBoxProps) => {
     return (
         <section className='joke-box'>
             <Joke 
@@ -18,6 +18,5 @@ export const JokeBox = ({ id, joke, favStatus, addFav, newJoke, deleteFav }: Jok
             >New Joke Pls
             </button>
         </section>
-    )
-}
-
+    );
+};

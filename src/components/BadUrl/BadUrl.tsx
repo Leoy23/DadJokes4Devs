@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './BadUrl.css';
 
-const badUrl = require('../../assets/bad-url.gif')
+const badUrl = require('../../assets/bad-url.gif');
 
 export const BadUrl = () => {
   return (
@@ -14,5 +14,5 @@ export const BadUrl = () => {
       />
       <h3>This is fine... try going <NavLink className='inactive' exact to='/'>home</NavLink> or a different address.</h3>
     </section>
-  )
-}
+  );
+};

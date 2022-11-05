@@ -9,5 +9,5 @@ export const Favorite = ({id, joke, deleteFav}: FavoriteProps) => {
         className='delete-fav-btn'
         onClick={() => deleteFav(id)}>No moar favorite</button>
     </article>
-  )
-}
+  );
+};

@@ -1,8 +1,8 @@
-import { JokeProps } from '../../model'
-import './Joke.css'
+import { JokeProps } from '../../model';
+import './Joke.css';
 
-export const Joke = ({ id, joke, favStatus, addFav, deleteFav }: JokeProps) => {
-    const text = favStatus ? 'No Moar Favorite' : 'Moar Favorite'
+export const Joke = ({id, joke, favStatus, addFav, deleteFav}: JokeProps) => {
+    const text = favStatus ? 'No Moar Favorite' : 'Moar Favorite';
 
     return (
             <article className='display-joke'>
@@ -14,5 +14,5 @@ export const Joke = ({ id, joke, favStatus, addFav, deleteFav }: JokeProps) => {
                     {text}
                 </button>
             </article>
-    )
-}
+    );
+};
