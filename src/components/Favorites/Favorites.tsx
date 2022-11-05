@@ -1,9 +1,8 @@
 import React from 'react';
 import './Favorites.css';
 import {Favorite} from '../Favorite/Favorite';
+import { NoFavorites } from '../NoFavorites/NoFavorites';
 import {Joke} from '../../model';
-
-const sadDog = require('../../assets/sad-dog.png')
 
 interface FavoritesProps {
   favs: Joke[];
@@ -23,8 +22,7 @@ export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
   })
   return (
     <section className={favsList.length === 0 ? 'no-favs' : 'fav-box'}>
-      {favsList.length === 0 && <h2>You don't have any favorites yet!</h2>}
-      {favsList.length === 0 && <img src={sadDog} alt="a sad dog laying down, looking up at you" className="sad-dog" />}
+      {favsList.length === 0 && <NoFavorites />}
       {favsList}
     </section>
   )

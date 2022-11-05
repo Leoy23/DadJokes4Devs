@@ -1,0 +1,15 @@
+.no-favorites {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.no-fav-text {
+  text-align: center;
+}
+
+.sad-dog {
+  align-self: center;
+  margin-bottom: 1rem;
+  width: 40vw;
+}
