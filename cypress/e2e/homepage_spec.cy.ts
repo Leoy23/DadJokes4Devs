@@ -3,7 +3,7 @@ describe('Home page', () => {
     cy.intercept('GET', 'https://icanhazdadjoke.com/', {
       statusCode: 200,
       ok: true,
-      body: {id:'ilksjdfidos', joke: 'This is a joke!'}
+      fixture: 'joke1'
     });
     cy.visit('http://localhost:3000');
     cy.get('.logo').should('exist');
@@ -27,7 +27,7 @@ describe('Home page', () => {
     cy.intercept('GET', 'https://icanhazdadjoke.com/', {
       statusCode: 200,
       ok: true,
-      body: {id:'dfisdifhsd', joke: 'This is another joke!'}
+      fixture: 'joke2'
     }).as('newJokeCall');
     cy.get('.new-joke-btn').click();
     cy.wait('@newJokeCall');
@@ -38,7 +38,7 @@ describe('Home page', () => {
     cy.intercept('GET', 'https://icanhazdadjoke.com/', {
       statusCode: 200,
       ok: true,
-      body: {id:'ilksjdfidos', joke: 'This is a joke!'}
+      fixture: 'joke1'
     });
     cy.visit('http://localhost:3000');
     cy.get('.fav-btn').click();
@@ -52,7 +52,7 @@ describe('Home page', () => {
     cy.intercept('GET', 'https://icanhazdadjoke.com/', {
       statusCode: 200,
       ok: true,
-      body: {id:'ilksjdfidos', joke: 'This is a joke!'}
+      fixture: 'joke1'
     });
     cy.visit('http://localhost:3000/izBad');
     cy.get('h2').should('exist').contains(`Uh oh, that's not a valid URL!`);
