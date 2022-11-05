@@ -4,6 +4,7 @@ import './App.css';
 import {Nav} from '../Nav/Nav';
 import {Jokes} from '../Jokes/Jokes';
 import {Favorites} from '../Favorites/Favorites'
+import {BadUrl} from '../BadUrl/BadUrl';
 import {Joke} from '../../model';
 import {getJokes} from '../../apiCalls';
 
@@ -52,22 +53,25 @@ export default function App() {
     <main className="home-page">
       <Nav />
       { error && <h2>{error}</h2> }
-      <Route exact path="/">
-        <Jokes 
-          id={joke.id}
-          joke={joke.joke}
-          favStatus={favStatus}
-          addFav={addFav}
-          newJoke={newJoke}
-          deleteFav={deleteFav}
-        />
-      </Route>
-      <Route exact path="/favorites">
-        <Favorites
-          favs={favs}
-          deleteFav={deleteFav}
-        />
-      </Route>
+      <Switch>
+        <Route exact path="/home">
+          <Jokes 
+            id={joke.id}
+            joke={joke.joke}
+            favStatus={favStatus}
+            addFav={addFav}
+            newJoke={newJoke}
+            deleteFav={deleteFav}
+          />
+        </Route>
+        <Route exact path="/favorites">
+          <Favorites
+            favs={favs}
+            deleteFav={deleteFav}
+          />
+        </Route>
+        <Route component={BadUrl} />
+      </Switch>
     </main>
   )
 }
