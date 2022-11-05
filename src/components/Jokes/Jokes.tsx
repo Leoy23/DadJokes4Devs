@@ -8,23 +8,25 @@ interface JokesProps {
     joke: string;
     addFav: (id: string, joke: string) => void;
     newJoke: () => void;
-    btnText: boolean;
+    favStatus: boolean;
     deleteFav: (id: string) => void;
 }
 
-export const Jokes = ({ id, joke, addFav, newJoke, btnText, deleteFav }: JokesProps) => {
+export const Jokes = ({ id, joke, addFav, newJoke, favStatus, deleteFav }: JokesProps) => {
     return (
         <section className='jokes-box'>
             <Joke 
                 id={id}
                 joke={joke}
                 addFav={addFav}
-                btnText={btnText}
+                favStatus={favStatus}
                 deleteFav={deleteFav}
             />
             <button 
-            className='new-joke-btn'
-            onClick={newJoke}>New Joke Pls</button>
+                className='new-joke-btn'
+                onClick={newJoke}
+            >New Joke Pls
+            </button>
         </section>
     )
 }

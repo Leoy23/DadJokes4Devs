@@ -5,20 +5,20 @@ interface JokeProps {
     id: string;
     joke: string;
     addFav: (id: string, joke: string) => void;
-    btnText: boolean;
+    favStatus: boolean;
     deleteFav: (id: string) => void;
 }
 
-export const Joke = ({ id, joke, addFav, btnText, deleteFav }: JokeProps) => {
-    const text = btnText ? 'No Moar Favorite' : 'Moar Favorite'
+export const Joke = ({ id, joke, addFav, favStatus, deleteFav }: JokeProps) => {
+    const text = favStatus ? 'No Moar Favorite' : 'Moar Favorite'
 
     return (
             <article className='display-joke'>
                 <p>{joke}</p>
-                {btnText && <span className="update-favs">Added to your favorites!</span>}
+                {favStatus && <span className="update-favs">Added to your favorites!</span>}
                 <button 
                     className='fav-btn'
-                    onClick={btnText ? () => deleteFav(id) : () => addFav(id, joke)}>
+                    onClick={favStatus ? () => deleteFav(id) : () => addFav(id, joke)}>
                     {text}
                 </button>
             </article>

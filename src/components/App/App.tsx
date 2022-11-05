@@ -12,7 +12,7 @@ export default function App() {
   const [joke, setJoke] = useState<Joke>({ id: '', joke: '' })
   const [error, setError] = useState<string>('')
   const [favs, setFavs] = useState<Joke[]>([])
-  const [btnText, setBtnText] = useState<boolean>(false)
+  const [favStatus, setfavStatus] = useState<boolean>(false)
 
   useEffect(() => {
     getJokes()
@@ -29,7 +29,7 @@ export default function App() {
     
     if (!favs.some(fav => fav.id === id)) {
       setFavs([...favs, favJoke])
-      setBtnText(true)
+      setfavStatus(true)
     } 
   }
 
@@ -37,7 +37,7 @@ export default function App() {
     getJokes()
       .then(randomJoke => {
         setJoke(randomJoke)
-        setBtnText(false)
+        setfavStatus(false)
       })
       .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
   }
@@ -45,7 +45,7 @@ export default function App() {
   const deleteFav = (id: string) => {
     const filteredFavs = favs.filter(fav => fav.id !== id)
     setFavs(filteredFavs)
-    setBtnText(false)
+    setfavStatus(false)
   }
 
   return (
@@ -58,7 +58,7 @@ export default function App() {
           joke={joke.joke}
           addFav={addFav}
           newJoke={newJoke}
-          btnText={btnText}
+          favStatus={favStatus}
           deleteFav={deleteFav}
         />
       </Route>
