@@ -23,8 +23,8 @@ export default function App() {
   const addFav = ( id: string, joke: string ) => {
     
     const favJoke = {
-      id: id,
-      joke: joke
+      id,
+      joke
     }
     
     if (!favs.some(fav => fav.id === id)) {
