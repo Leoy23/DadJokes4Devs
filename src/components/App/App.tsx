@@ -15,13 +15,22 @@ export default function App() {
   const [favStatus, setfavStatus] = useState<boolean>(false)
 
   useEffect(() => {
-    getJokes()
-    .then(randomJoke => setJoke({id: randomJoke.id, joke: randomJoke.joke}))
-    .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+    newJoke();
+    // getJokes()
+    //   .then(randomJoke => setJoke({id: randomJoke.id, joke: randomJoke.joke}))
+    //   .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
 }, [])
 
+  const newJoke = () => {
+    getJokes()
+      .then(randomJoke => {
+        setJoke({id: randomJoke.id, joke: randomJoke.joke})
+        setfavStatus(false)
+      })
+      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
+  }
+
   const addFav = ( id: string, joke: string ) => {
-    
     const favJoke = {
       id,
       joke
@@ -31,15 +40,6 @@ export default function App() {
       setFavs([...favs, favJoke])
       setfavStatus(true)
     } 
-  }
-
-  const newJoke = () => {
-    getJokes()
-      .then(randomJoke => {
-        setJoke(randomJoke)
-        setfavStatus(false)
-      })
-      .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
   }
 
   const deleteFav = (id: string) => {
@@ -56,9 +56,9 @@ export default function App() {
         <Jokes 
           id={joke.id}
           joke={joke.joke}
+          favStatus={favStatus}
           addFav={addFav}
           newJoke={newJoke}
-          favStatus={favStatus}
           deleteFav={deleteFav}
         />
       </Route>

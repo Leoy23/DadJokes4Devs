@@ -4,12 +4,12 @@ import './Joke.css'
 interface JokeProps {
     id: string;
     joke: string;
-    addFav: (id: string, joke: string) => void;
     favStatus: boolean;
+    addFav: (id: string, joke: string) => void;
     deleteFav: (id: string) => void;
 }
 
-export const Joke = ({ id, joke, addFav, favStatus, deleteFav }: JokeProps) => {
+export const Joke = ({ id, joke, favStatus, addFav, deleteFav }: JokeProps) => {
     const text = favStatus ? 'No Moar Favorite' : 'Moar Favorite'
 
     return (
