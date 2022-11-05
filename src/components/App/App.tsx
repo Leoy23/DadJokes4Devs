@@ -9,14 +9,14 @@ import {getJokes} from '../../apiCalls';
 
 export default function App() {
 
-  const [joke, setJoke] = useState<Joke>({ id: '', joke: '', status: 0 })
+  const [joke, setJoke] = useState<Joke>({ id: '', joke: '' })
   const [error, setError] = useState<string>('')
   const [favs, setFavs] = useState<Joke[]>([])
-  const [btnText, setBtnText] = useState(false)
+  const [btnText, setBtnText] = useState<boolean>(false)
 
   useEffect(() => {
     getJokes()
-    .then(randomJoke => setJoke(randomJoke))
+    .then(randomJoke => setJoke({id: randomJoke.id, joke: randomJoke.joke}))
     .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
 }, [])
 
