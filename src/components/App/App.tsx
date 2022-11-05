@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import './App.css';
+import { Joke } from '../../model';
+import { getJokes } from '../../apiCalls';
 import { Nav } from '../Nav/Nav';
 import { Jokes } from '../Jokes/Jokes';
 import { Favorites } from '../Favorites/Favorites'
 import { BadUrl } from '../BadUrl/BadUrl';
-import { Joke } from '../../model';
-import { getJokes } from '../../apiCalls';
+import './App.css';
 
 export default function App() {
 

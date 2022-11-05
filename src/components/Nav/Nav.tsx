@@ -1,6 +1,5 @@
-import React from 'react';
-import './Nav.css';
 import { NavLink } from 'react-router-dom'
+import './Nav.css';
 
 const logo = require('../../assets/logo.png')
 

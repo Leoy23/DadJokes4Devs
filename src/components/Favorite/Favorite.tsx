@@ -1,11 +1,5 @@
-import React from 'react';
+import { FavoriteProps } from '../../model';
 import './Favorite.css';
-
-interface FavoriteProps {
-  id: string;
-  joke: string;
-  deleteFav: (id: string) => void;
-}
 
 export const Favorite = ({id, joke, deleteFav}: FavoriteProps) => {
   return (

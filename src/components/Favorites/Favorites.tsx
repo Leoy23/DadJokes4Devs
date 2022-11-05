@@ -1,13 +1,7 @@
-import React from 'react';
-import './Favorites.css';
 import { Favorite } from '../Favorite/Favorite';
 import { NoFavorites } from '../NoFavorites/NoFavorites';
-import { Joke } from '../../model';
-
-interface FavoritesProps {
-  favs: Joke[];
-  deleteFav: (id: string) => void;
-}
+import { FavoritesProps } from '../../model';
+import './Favorites.css';
 
 export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
   const favsList = favs.map(fav => {
