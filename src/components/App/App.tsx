@@ -49,7 +49,7 @@ export default function App() {
   return (
     <main className="home-page">
       <Nav />
-      { error && <h2>{error}</h2> }
+      {error ?  <h2 className="error-msg">{error}</h2> : 
       <Switch>
         <Route exact path="/">
           <Jokes 
@@ -68,7 +68,7 @@ export default function App() {
           />
         </Route>
         <Route component={BadUrl} />
-      </Switch>
+      </Switch> }
     </main>
   )
 }
