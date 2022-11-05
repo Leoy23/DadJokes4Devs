@@ -1,8 +1,8 @@
 import React from 'react';
 import './Favorites.css';
-import {Favorite} from '../Favorite/Favorite';
+import { Favorite } from '../Favorite/Favorite';
 import { NoFavorites } from '../NoFavorites/NoFavorites';
-import {Joke} from '../../model';
+import { Joke } from '../../model';
 
 interface FavoritesProps {
   favs: Joke[];

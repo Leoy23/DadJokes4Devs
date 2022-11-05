@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from "react";
-import {Switch, Route} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import {Nav} from '../Nav/Nav';
-import {Jokes} from '../Jokes/Jokes';
-import {Favorites} from '../Favorites/Favorites'
-import {BadUrl} from '../BadUrl/BadUrl';
-import {Joke} from '../../model';
-import {getJokes} from '../../apiCalls';
+import { Nav } from '../Nav/Nav';
+import { Jokes } from '../Jokes/Jokes';
+import { Favorites } from '../Favorites/Favorites'
+import { BadUrl } from '../BadUrl/BadUrl';
+import { Joke } from '../../model';
+import { getJokes } from '../../apiCalls';
 
 export default function App() {
 
@@ -47,11 +47,11 @@ export default function App() {
   }
 
   return (
-    <main className="home-page">
+    <main className='home-page'>
       <Nav />
-      {error ?  <h2 className="error-msg">{error}</h2> : 
+      {error ?  <h2 className='error-msg'>{error}</h2> : 
       <Switch>
-        <Route exact path="/">
+        <Route exact path='/'>
           <Jokes 
             id={joke.id}
             joke={joke.joke}
@@ -61,7 +61,7 @@ export default function App() {
             deleteFav={deleteFav}
           />
         </Route>
-        <Route exact path="/favorites">
+        <Route exact path='/favorites'>
           <Favorites
             favs={favs}
             deleteFav={deleteFav}

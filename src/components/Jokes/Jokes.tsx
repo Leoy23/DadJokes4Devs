@@ -1,5 +1,5 @@
 import React from 'react'
-import {Joke} from '../Joke/Joke'
+import { Joke } from '../Joke/Joke'
 // import {JokesProps} from '../../model'
 import './Jokes.css'
 
