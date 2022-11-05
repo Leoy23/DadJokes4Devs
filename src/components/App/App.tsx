@@ -34,10 +34,11 @@ export default function App() {
   }
 
   const newJoke = () => {
-    setBtnText(false)
-
     getJokes()
-      .then(randomJoke => setJoke(randomJoke))
+      .then(randomJoke => {
+        setJoke(randomJoke)
+        setBtnText(false)
+      })
       .catch(error => setError(`Uh oh, that's a ${error.message}! Try again later.`))
   }
 

@@ -21,7 +21,7 @@ export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
   })
   return (
     <section className='fav-box'>
-      {favsList.length === 0 && <h2>You don't have any favorites!</h2>}
+      {favsList.length === 0 && <><h2>You don't have any favorites yet!</h2></>}
       {favsList}
     </section>
   )
