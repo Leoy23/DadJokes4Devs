@@ -15,9 +15,8 @@ export const Favorites = ({favs, deleteFav}: FavoritesProps) => {
     )
   })
   return (
-    <section className={favsList.length === 0 ? 'no-favs' : 'fav-box'}>
-      {favsList.length === 0 && <NoFavorites />}
-      {favsList}
+    <section className={favsList.length ? 'fav-box' : 'no-favs'}>
+      {favsList.length ? favsList : <NoFavorites/>}
     </section>
   )
 }
