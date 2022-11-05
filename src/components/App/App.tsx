@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Joke } from '../../model';
 import { getJokes } from '../../apiCalls';
 import { Nav } from '../Nav/Nav';
-import { Jokes } from '../Jokes/Jokes';
+import { JokeBox } from '../JokeBox/JokeBox';
 import { Favorites } from '../Favorites/Favorites'
 import { BadUrl } from '../BadUrl/BadUrl';
 import './App.css';
@@ -52,7 +52,7 @@ export default function App() {
       {error ?  <h2 className='error-msg'>{error}</h2> : 
       <Switch>
         <Route exact path='/'>
-          <Jokes 
+          <JokeBox 
             id={joke.id}
             joke={joke.joke}
             favStatus={favStatus}

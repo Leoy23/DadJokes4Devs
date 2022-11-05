@@ -1,10 +1,10 @@
 import { Joke } from '../Joke/Joke'
-import { JokesProps } from '../../model'
-import './Jokes.css'
+import { JokeBoxProps } from '../../model'
+import './JokeBox.css'
 
-export const Jokes = ({ id, joke, favStatus, addFav, newJoke, deleteFav }: JokesProps) => {
+export const JokeBox = ({ id, joke, favStatus, addFav, newJoke, deleteFav }: JokeBoxProps) => {
     return (
-        <section className='jokes-box'>
+        <section className='joke-box'>
             <Joke 
                 id={id}
                 joke={joke}

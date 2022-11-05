@@ -9,7 +9,7 @@ export interface JokeProps extends Joke {
   deleteFav: (id: string) => void;
 }
 
-export interface JokesProps extends JokeProps {
+export interface JokeBoxProps extends JokeProps {
   newJoke: () => void;
 }
 
