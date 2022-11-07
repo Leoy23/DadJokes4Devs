@@ -32,7 +32,7 @@
 </details>
 
 ## About The Project
-Are you a tired and/or frustrated developer in need of a smile? Look no further, DadJokes4Devs was created just for you! This responsive and accessible application will display a random dad joke on page reload, and allow you to both store and delete your favorites easily.
+Are you a tired and/or frustrated developer in need of a smile? Look no further, DadJokes4Devs was created just for you! This responsive and accessible application will display a random dad joke on page load, and allow you to both store and delete your favorite jokes easily.
 <br>
 
 <h3 align="center">Displaying New Jokes & Adding Favorites:</h3>
@@ -83,7 +83,7 @@ This group project was assigned during the third module of Turing's Front-End En
 Focusing on a more straightfoward application allowed us, as a group, to concentrate on our understanding of TypeScript fundamentals, and pair that understanding with self-teaching hooks, since all of the TypeScript-React tutorials rely on `useState` and `useEffect` in their guides. We feel as though, in creating this application, we have laid both a strong TypeScript and hook foundation on which to build future applications, and we are excited about implementing these technologies in the future!
 <p>
 <b>Challenges:</b><br>
-In the same vein, our challenges mirror our wins. This project requried a lot of front-loading—learning vanilla TypeScript fundamentals and then transitioning from class-based React components and life-cycle methods to `useState` and `useEffect`—before we were able to put our hands on the keys. Giving ourselves the space to learn and trusting that we would be able to implement that learning and create a functional application was harder than we anticipated!
+In the same vein, our challenges mirror our wins. This project required a lot of front-loading—learning vanilla TypeScript fundamentals and then transitioning from class-based React components and life-cycle methods to hooks—before we were able to put our hands on the keys. Giving ourselves the space to learn and trusting that we would be able to implement that learning and create a functional application was harder than we anticipated!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
